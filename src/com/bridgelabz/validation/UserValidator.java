@@ -11,8 +11,12 @@ public class UserValidator {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the FirstName");
 		String firstName = scanner.next();
-		boolean nameStatus = validator.validateFirstName(firstName);
-		System.out.println("First name validation " + nameStatus);
+		boolean validationStatus = validator.validateFirstName(firstName);
+		System.out.println("First name validation " + validationStatus);
+		System.out.println("Enter the LastName");
+		String lastName = scanner.next();
+		validationStatus = validator.validateLastName(lastName);
+		System.out.println("Last name validation " + validationStatus);
 
 	}
 
@@ -21,4 +25,8 @@ public class UserValidator {
 
 	}
 
+	public boolean validateLastName(String lastName) {
+		return (Pattern.matches("^[A-Z]{1}+[a-z]{3,}$", lastName));
+
+	}
 }
